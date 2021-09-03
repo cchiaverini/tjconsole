@@ -2,11 +2,13 @@ package org.jsoftware.tjconsole.launcher;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.Exception;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import org.jsoftware.tjconsole.TJConsole;
 
 /**
  * Launch TJConsole using special class loader
@@ -15,7 +17,8 @@ import java.net.URLClassLoader;
  */
 public class TJConsoleLauncher {
 
-    public static void main(String[] args) throws FileNotFoundException, MalformedURLException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static void main(String[] args) throws Exception {
+        /*
         String toolsJarPath = System.getProperty("java.home") + File.separator + ".." + File.separator + "lib" + File.separator + "tools.jar";
         File toolsJarFile = new File(toolsJarPath);
         if (!toolsJarFile.exists()) {
@@ -27,6 +30,9 @@ public class TJConsoleLauncher {
         Class<?> clazz = classLoader.loadClass("org.jsoftware.tjconsole.TJConsole");
         Method method = clazz.getMethod("start", String[].class);
         method.invoke(null, new Object[]{args});
+        */
+
+        TJConsole.start(args);
     }
 
 }

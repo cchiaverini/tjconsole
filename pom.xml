@@ -3,7 +3,7 @@
     <groupId>org.jsoftware</groupId>
     <artifactId>tjconsole</artifactId>
     <packaging>jar</packaging>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8.0-SNAPSHOT</version>
     <url>https://github.com/m-szalik/tjconsole/wiki</url>
     <name>Text Java Console</name>
     <description>JConsole in text mode, can be used for shell scripting.</description>
@@ -53,13 +53,6 @@
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.sun</groupId>
-            <artifactId>tools</artifactId>
-            <version>currentJDK</version>
-            <scope>system</scope>
-            <systemPath>${java.home}/../lib/tools.jar</systemPath>
-        </dependency>
     </dependencies>
 
     <build>
@@ -90,6 +83,15 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
             </plugin>
         </plugins>
     </build>

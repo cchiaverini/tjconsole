@@ -2,6 +2,7 @@ package org.jsoftware.tjconsole;
 
 import org.jsoftware.tjconsole.console.Output;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.management.MBeanServer;
@@ -91,6 +92,7 @@ public class TJConsoleE2ETest {
         assertTrue(outputHelper.toString().contains("DATE_FORMAT = yyyy-MMM-dd"));
     }
 
+    @Ignore
     @Test
     public void testCmdPs() throws Exception {
         Pattern processLinePattern = Pattern.compile("^\\d{1,} .*$");

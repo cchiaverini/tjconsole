@@ -47,13 +47,17 @@ public class ProcessListManager {
             VirtualMachine vm = VirtualMachine.attach(pid);
             String connectorAddress = vm.getAgentProperties().getProperty("com.sun.management.jmxremote.localConnectorAddress");
             if (connectorAddress == null) { // no JMX - enable it
+                /*
                 Properties remoteProperties = vm.getSystemProperties();
                 String separator = remoteProperties.getProperty("file.separator", File.separator);
                 vm.loadAgent(remoteProperties.getProperty("java.home") + separator + "lib" + separator + "management-agent.jar");
+                 */
+                vm.startLocalManagementAgent();
                 connectorAddress = vm.getAgentProperties().getProperty("com.sun.management.jmxremote.localConnectorAddress");
             }
             return new JMXServiceURL(connectorAddress);
         } catch (AttachNotSupportedException ex) {
+            ex.printStackTrace();
             throw new LocalJvmAttachException(ex.getMessage());
         }
     }
